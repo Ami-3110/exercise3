@@ -51,7 +51,7 @@ class AuthController extends Controller
         // 現在の体重をweight_logsテーブルに最初の記録として保存
         $user->weightLogs()->create([
             'date' => now()->toDateString(),
-            'weight' => $request->input('current_weight'),
+            'weight' => $request->input('weight'),
             'calories' => 0,               // 初期値として0やnullなど
             'exercise_time' => '00:00:00', // 初期値
             'exercise_content' => '',
