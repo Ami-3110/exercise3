@@ -65,6 +65,21 @@ class AuthController extends Controller
         return redirect('/weight_logs');
     }
 
+     //ログイン処理
+    public function login(Request $request){
+    $credentials = $request->only('email', 'password');
+    if (auth()->attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('/weight_logs');
+    }
+
+    return back()->withErrors([
+        'email' => '認証に失敗しました。',
+    ])->onlyInput('email');
+}
+
+    
+
     // ログアウト処理
     public function logout(Request $request){
         auth()->logout();

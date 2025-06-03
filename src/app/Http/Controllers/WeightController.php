@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class WeightController extends Controller
 {
-        // 一覧表示
-        public function index()
-        {
-            //
-        }
+    public function index()
+    {
+        return view('weight_logs');
+    }
+
     
         // 新規作成
         public function store(Request $request)

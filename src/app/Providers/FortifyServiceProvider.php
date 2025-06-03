@@ -26,16 +26,17 @@ class FortifyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot(){
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-        // ここで、ログインや登録ページのビューのパスも指定可能
-        // 例:
-        // Fortify::loginView(fn () => view('auth.login'));
-        // Fortify::registerView(fn () => view('auth.register-step1'));
+        Fortify::loginView(function(){
+            return view('auth.login');
+        });
+        Fortify::registerView(function(){
+            return view('auth.register_1');
+        });
     }
 }

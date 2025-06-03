@@ -16,10 +16,10 @@ use App\Http\Controllers\WeightController;
 */
 
 Route::get('/register/step1', [AuthController::class, 'showRegisterStep1']);
-Route::post('/login',[AuthController::class,'login']);
-Route::get('/register/step2', [AuthController::class, 'showRegisterStep2']);
 Route::post('/register/step1',[AuthController::class,'registerStep1']);
+Route::get('/register/step2', [AuthController::class, 'showRegisterStep2']);
 Route::post('/register/step2',[AuthController::class,'registerStep2']);
+Route::post('/login',[AuthController::class,'login']);
 Route::post('/logout',[AuthController::class,'logout']);
 
 Route::middleware(['auth'])->group(function () {

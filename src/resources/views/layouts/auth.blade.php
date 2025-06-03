@@ -13,7 +13,7 @@
         <div class="form">
             <header>
                 <h1>PiGLy</h1>
-                <h2>新規会員登録</h2>
+                <h2>@yield('title')</h2>
             </header>
             <main>
                 @yield('step')

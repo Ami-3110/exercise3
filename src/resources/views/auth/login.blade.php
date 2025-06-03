@@ -1,20 +1,9 @@
 @extends('layouts.auth')
-@section('title', '新規会員登録')
-
-@section('step')
-    <navi>STEP1 アカウント情報の登録</navi>
-@endsection
-
+@section('title', 'ログイン')
 @section('content')
-    <form method="POST" action="/register/step1">
+    <form method="POST" action="/login">
         @csrf
         
-        <label>お名前</label>
-        <input type="text" name="name" value="{{ old('name') }}" /><br>
-        @error('name')
-            <div class="error">{{ $message }}</div>
-        @enderror
-
         <label>メールアドレス</label>
         <input type="email" name="email" value="{{ old('email') }}" /><br>
         @error('email')
@@ -31,7 +20,7 @@
             <button type="submit">次に進む</button>
         </div>
         <div class="login__link">
-            <a href="/login">ログインはこちら</a>
+            <a href="/register/step1">アカウント作成はこちら</a>
         </div>
     </form>
 @endsection

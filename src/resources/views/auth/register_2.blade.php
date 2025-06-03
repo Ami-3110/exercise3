@@ -1,6 +1,5 @@
 @extends('layouts.auth')
-
-@section('title', 'ステップ2：体重情報登録')
+@section('title', '新規会員登録')
 
 @section('step')
     <navi>STEP2 体重データの入力</navi>
