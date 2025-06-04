@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function weightTargets(){
-        return $this->hasMany(WeightTarget::class);
+        return $this->hasOne(WeightTarget::class)->latestOfMany();
     }
 
     public function weightLogs(){
