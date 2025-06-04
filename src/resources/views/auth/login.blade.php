@@ -1,17 +1,23 @@
 @extends('layouts.auth')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+@endsection
+
 @section('title', 'ログイン')
+
 @section('content')
     <form method="POST" action="/login">
         @csrf
         
-        <label>メールアドレス</label>
-        <input type="email" name="email" value="{{ old('email') }}" /><br>
+        <label class="form__label">メールアドレス</label>
+        <input class="form__input" type="email" name="email" value="{{ old('email') }}" /><br>
         @error('email')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <label>パスワード</label>
-        <input type="password" name="password" /><br>
+        <label class="form__label">パスワード</label>
+        <input class="form__input" type="password" name="password" /><br>
         @error('password')
             <div class="error">{{ $message }}</div>
         @enderror

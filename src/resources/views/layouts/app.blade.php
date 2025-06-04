@@ -15,11 +15,11 @@
     <header>
         <div class="logo">PiGLy</div>
         <div class="header__buttons">
-            <button type="button" class="target__setting" onclick="location.href='{{ url('/weight_logs/goal_setting') }}'">目標体重設定</button>
+            <img src="{{ asset('images/setting.png') }}" alt="編集アイコン" class="setting-icon"><button type="button" class="target__setting" onclick="location.href='{{ url('/weight_logs/goal_setting') }}'">目標体重設定</button>
             
             <form method="POST" action="/logout">
                 @csrf
-                <button type="submit">ログアウト</button>
+                <img src="{{ asset('images/logout.png') }}" alt="編集アイコン" class="logout-icon"><button type="submit">ログアウト</button>
             </form>
         </div>
     </header>

@@ -19,24 +19,12 @@ form {
     margin-bottom: 4px;
 }
 
-.input_group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .form__input {
-    width: 90%;
     padding: 8px 10px;
     font-size: 14px;
     border: 1px solid #e2e0e0;
     border-radius: 6px;
     transition: border-color 0.2s ease-in-out;
-}
-
-.unit {
-    font-size: 14px;
-    color: #555;
 }
 
 .form__input:focus {
@@ -48,6 +36,7 @@ form {
 .error {
     color: #e74c3c;
     font-size: 12px;
+    margin-top: -25px;
     margin-bottom: 8px;
 }
 

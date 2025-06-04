@@ -1,0 +1,46 @@
+.auth-background {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg,#a6c1ee,#ffb6b9);
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+}
+
+.form {
+    background-color: #fff;
+    width: 400px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 300px;
+    margin: 0 auto 5px;
+    font-size: 32px;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal; 
+    color: #efa9fb;
+    text-align: center;
+}
+
+.title {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: hiragino-mincho-pron, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}

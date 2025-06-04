@@ -1,28 +1,33 @@
 @extends('layouts.auth')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/register_1.css') }}" />
+@endsection
+
 @section('title', '新規会員登録')
 
 @section('step')
-    <navi>STEP1 アカウント情報の登録</navi>
+    <div class="step">STEP1 アカウント情報の登録</div>
 @endsection
 
 @section('content')
     <form method="POST" action="/register/step1">
         @csrf
         
-        <label>お名前</label>
-        <input type="text" name="name" value="{{ old('name') }}" /><br>
+        <label class="form__label">お名前</label>
+        <input class="form__input" type="text" name="name" value="{{ old('name') }}" />
         @error('name')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <label>メールアドレス</label>
-        <input type="email" name="email" value="{{ old('email') }}" /><br>
+        <label class="form__label">メールアドレス</label>
+        <input class="form__input" type="email" name="email" value="{{ old('email') }}" />
         @error('email')
             <div class="error">{{ $message }}</div>
         @enderror
 
-        <label>パスワード</label>
-        <input type="password" name="password" /><br>
+        <label class="form__label">パスワード</label>
+        <input class="form__input" type="password" name="password" />
         @error('password')
             <div class="error">{{ $message }}</div>
         @enderror
