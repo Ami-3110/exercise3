@@ -23,7 +23,7 @@ class WeightLogFactory extends Factory
         return [
             'user_id' => 1, // または適宜既存IDに変更
             'date' => $this->faker->dateTimeBetween('-30 days', 'now')->format('Y-m-d'),
-            'weight' => $this->faker->randomFloat(1, 900, 700), // 例: 45kg〜70kg
+            'weight' => $this->faker->randomFloat(1, 900, 700), // 例: 700kg〜900kg
             'calories' => $this->faker->numberBetween(1200, 3000),
             'exercise_time' => $exerciseTime,
             'exercise_content' => $this->faker->randomElement(['ランニング', '水泳', 'ウォーキング', '筋トレ', 'ヨガ','スクーバダイビング','フリーダイビング']),

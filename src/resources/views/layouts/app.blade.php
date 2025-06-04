@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
+    @yield('css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>@yield('title', 'PiGLy')</title>
 </head>
 <body>
     <header>
         <div class="logo">PiGLy</div>
         <div class="header__buttons">
-            <button type="button" class="target__setting" onclick="location.href='{{ url('/weight_target/edit') }}'">目標体重設定</button>
+            <button type="button" class="target__setting" onclick="location.href='{{ url('/weight_logs/goal_setting') }}'">目標体重設定</button>
             
             <form method="POST" action="/logout">
                 @csrf

@@ -23,14 +23,14 @@ Route::post('/login',[AuthController::class,'login']);
 Route::post('/logout',[AuthController::class,'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/weight_logs',[WeightController::class,'index']);
-    Route::post('/weight_logs/create',[WeightController::class,'store']);
-    Route::post('/weight_logs/search',[WeightController::class,'search']);
+    Route::get('/weight_logs',[WeightController::class,'index'])->name('weight_logs.index');
+    Route::get('/weight_logs/goal_setting', [WeightController::class, 'showSettings'])->name('weight_logs.goal_setting');
+    Route::post('/weight_logs/goal_setting', [WeightController::class, 'updateSettings']);
 
+    Route::post('/weight_logs/create',[WeightController::class,'store']);
+    Route::get('/weight_logs/search',[WeightController::class,'search'])->name('weight_logs.search');
     Route::get('weight_logs/{weightLogId}',[WeightController::class,'show']);
     Route::post('/weight_logs/{weightLogId}/update',[WeightController::class,'update']);
     Route::post('/weight_logs/{weightLogId}/delete',[WeightController::class,'delete']);
-
-    Route::post('/weight_logs/goal_setting',[WeightController::class,'settings']);
 
 });

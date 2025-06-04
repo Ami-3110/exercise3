@@ -67,7 +67,7 @@ class AuthController extends Controller
     }
 
      //ログイン処理
-    public function login(Request $request){
+    public function login(LoginRequest $request){
     $credentials = $request->only('email', 'password');
     if (auth()->attempt($credentials)) {
         $request->session()->regenerate();
