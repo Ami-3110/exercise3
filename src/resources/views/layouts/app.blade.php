@@ -12,18 +12,18 @@
     <title>@yield('title', 'PiGLy')</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="logo">PiGLy</div>
         <div class="header__buttons">
-            <img src="{{ asset('images/setting.png') }}" alt="編集アイコン" class="setting-icon"><button type="button" class="target__setting" onclick="location.href='{{ url('/weight_logs/goal_setting') }}'">目標体重設定</button>
+            <button type="button" class="setting__button" onclick="location.href='{{ url('/weight_logs/goal_setting') }}'"><img src="{{ asset('images/setting.png') }}" alt="編集アイコン" class="setting-icon">目標体重設定</button>
             
             <form method="POST" action="/logout">
                 @csrf
-                <img src="{{ asset('images/logout.png') }}" alt="編集アイコン" class="logout-icon"><button type="submit">ログアウト</button>
+                <button type="submit" class="logout__button"><img src="{{ asset('images/logout.png') }}" alt="編集アイコン" class="logout-icon">ログアウト</button>
             </form>
         </div>
     </header>
-    <main>
+    <main class="main">
         @yield('content')
     </main>
 </body>

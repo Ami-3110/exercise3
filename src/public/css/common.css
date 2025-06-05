@@ -1,0 +1,72 @@
+/* 基本のリセット（sanitize.cssを補完） */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* header全体のスタイル */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ロゴ */
+.logo {
+    font-size: 1.8rem;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #efa9fb;
+    letter-spacing: 3px;
+}
+
+/* ボタン全体をまとめる */
+.header__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* 設定・ログアウト共通のアイコン */
+.setting-icon,
+.logout-icon {
+    width: 20px;
+    height: 20px;
+    padding-top: -5px;
+    object-fit: contain;
+    margin-right: 0.3rem;
+    opacity: 0.8;
+}
+
+/* ボタン共通 */
+.setting__button,
+.logout__button {
+    background-color: #F7F7F7;
+    border: none;
+    color: #605f5f;
+    padding: 8px 10px;
+    font-size: 12px;
+    border: solid 1px #CDCDCD;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* ホバー時の効果 */
+.setting__button:hover,
+.logout__button:hover {
+    background-color: #605f5f;
+}
+
+/* main全体 */
+.main {
+    padding: 2rem;
+}

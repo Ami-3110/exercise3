@@ -13,7 +13,7 @@ class WeightController extends Controller
 {
     // 一覧表示
     public function index(){
-        $logs = auth()->user()->weightLogs()->orderBy('date', 'desc')->paginate(10);
+        $logs = auth()->user()->weightLogs()->orderBy('date', 'desc')->paginate(8);
     
         return view('weight_logs.index', array_merge(
             ['logs' => $logs],
@@ -55,7 +55,7 @@ class WeightController extends Controller
             $query->where('date', '<=', $request->end_date);
         }
     
-        $logs = $query->orderBy('date', 'desc')->paginate(10)->appends($request->all());
+        $logs = $query->orderBy('date', 'desc')->paginate(8)->appends($request->all());
     
         return view('weight_logs.index', array_merge(
             ['logs' => $logs],
