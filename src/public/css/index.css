@@ -1,13 +1,14 @@
-/* サマリー（目標体重・最新体重など）の表示 */
+
 .main {
     background-color: #F9F9F9;
 }
 
+/* 上部のサマリー */
 .summary {
     display: flex;
     justify-content: space-around;
-    margin: 2rem auto;
-    padding: 1rem;
+    margin: 30px auto;
+    padding: 15px;
     background-color: #FFF;
     border-radius: 8px;
     width: 80%;
@@ -16,7 +17,7 @@
 .summary__item {
     flex: 1;
     text-align: center;
-    padding: 1rem;
+    padding: 15px;
     border-right: 2px solid #eeeeee;
 }
 
@@ -26,16 +27,24 @@
 
 .summary__label {
     display: block;
-    font-size: 10px;
+    text-align: left;
+    font-size: 12px;
     color: #555;
-    margin-bottom: 0.3rem;
+    padding-left: 80px;
+    margin-bottom: 5px;
 }
 
 .summary__value {
-    font-size: 24px;
+    font-size: 30px;
     color: #555;
 }
 
+.summary__unit {
+    font-size: 12px;
+    color: #555;
+}
+
+/* メイン表示 */
 .surface {
     background-color: #FFF;
     width: 80%;
@@ -47,32 +56,33 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-left: 15px;
 }
 /* 検索フォーム */
-form {
+.form {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 15px;
+    margin: 20px 0;
     flex-wrap: wrap;
-    /* 小画面対応 */
 }
 
 /* 日付入力 */
-form input[type="date"] {
-    padding: 0.4rem;
+.form input[type="date"] {
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 6px;
     min-width: 150px;
+    color: #ccc;
 }
 
 .btn-search {
     width: 110px;
     background-color: #999999;
     color: #FFFFFF;
-    padding: 0.5rem 1.2rem;
+    padding: 5px 15px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
@@ -88,7 +98,7 @@ form input[type="date"] {
     background-color: #ffffff;
     text-decoration: none;
     color: #999999;
-    padding: 0.5rem 1.2rem;
+    padding: 5px 15px;
     border-radius: 8px;
     border: 1px solid #999999;
     cursor: pointer;
@@ -108,7 +118,7 @@ form .date-separator {
     width: 150px;
     margin: auto 15px;
     background: linear-gradient(135deg, #a6c1ee, #ffb6b9);
-    padding: 0.5rem 1.2rem;
+    padding: 5px 15px;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -135,6 +145,7 @@ th {
     padding-bottom: 12px;
     text-align: center;
 }
+/* カラム名の下の横線 */
 th::after {
     content: "";
     position: absolute;
@@ -144,16 +155,14 @@ th::after {
     height: 1px;
     background: linear-gradient(135deg, #a6c1ee, #ffb6b9);
 }
-/* 日付列だけ左寄せ + 余白で少し右寄せ風に */
+/* 日付列だけ左寄せ + 余白に!!! */
 th.col-date, td.col-date {
     text-align: left;
     padding-left: 30px;
     height: 40px;
 }
-/* データの左寄せ（体重・カロリー・運動時間） */
 th.col-left, td.col-left {
     padding: 8px 12px;
-    /* 上下8px、左右12pxに統一 */
     text-align: center;
 }
 
@@ -161,9 +170,7 @@ th.col-left, td.col-left {
 .edit-icon {
     width: 20px;
     height: 20px;
-    filter: grayscale(60%) brightness(0.8);
-    opacity: 0.8;
-    transition: transform 0.2s;
+    opacity: 1;
 }
 
 .edit-icon:hover {
@@ -171,11 +178,7 @@ th.col-left, td.col-left {
     opacity: 1;
 }
 
-/* カラム名の下の横線 */
-.header-bottom-line td {
-    border-bottom: 3px solid linear-gradient(135deg, #a6c1ee, #ffb6b9);
-    padding: 0;
-}
+
 
 /* データ行の間の横線 */
 .data-bottom-line td {

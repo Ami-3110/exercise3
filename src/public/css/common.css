@@ -2,8 +2,6 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
     color: #333;
 }
 
@@ -12,14 +10,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 5px 20px ;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* ロゴ */
 .logo {
-    font-size: 1.8rem;
+    font-size: 28px;
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -32,7 +29,7 @@ body {
 .header__buttons {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 20px;
 }
 
 /* 設定・ログアウト共通のアイコン */
@@ -40,9 +37,8 @@ body {
 .logout-icon {
     width: 20px;
     height: 20px;
-    padding-top: -5px;
     object-fit: contain;
-    margin-right: 0.3rem;
+    margin-right: 5px;
     opacity: 0.8;
 }
 
@@ -52,7 +48,7 @@ body {
     background-color: #F7F7F7;
     border: none;
     color: #605f5f;
-    padding: 8px 10px;
+    padding: 5px 10px;
     font-size: 12px;
     border: solid 1px #CDCDCD;
     border-radius: 4px;
@@ -66,7 +62,15 @@ body {
     background-color: #605f5f;
 }
 
+.line {
+    height: 1px;
+    background-color: #CDCDCD;
+    /* グレー */
+    width: 100%;
+    /* 上に余白 */
+}
+
 /* main全体 */
 .main {
-    padding: 2rem;
+    padding: 10px;
 }

@@ -9,24 +9,24 @@
 <div class="summary">
     <div class="summary__item">
         <span class="summary__label">目標体重</span>
-        <span class="summary__value">{{ $targetWeight }} kg</span>
+        <span class="summary__value">{{ $targetWeight }} </span><span class="summary__unit">kg</span>
     </div>
     <div class="summary__item">
         <span class="summary__label">目標まで</span>
-        <span class="summary__value">-{{ $difference }} kg</span>
+        <span class="summary__value">-{{ $difference }} </span><span class="summary__unit">kg</span>
     </div>
     <div class="summary__item">
         <span class="summary__label">最新体重</span>
-        <span class="summary__value">{{ $latestLog ->weight }} kg</span>
+        <span class="summary__value">{{ $latestLog ->weight }} </span><span class="summary__unit">kg</span>
     </div>
 </div>
 
 <div class="surface">
     <div class="search-and-add">
         <!--検索関連 -->
-        <form action="{{ route('weight_logs.search') }}" method="GET">
+        <form class="form" action="{{ route('weight_logs.search') }}" method="GET">
             <input type="date" name="start_date" value="{{ request('start_date') }}"><span class="date-separator">〜</span>
-            <input type="date" name="end_date" value="{{ request('end_date') }}">
+            <input class="form" type="date" name="end_date" value="{{ request('end_date') }}">
             <button type="submit" class="btn-search">検索</button>
 
             @if(request()->has('start_date') || request()->has('end_date'))
@@ -69,7 +69,7 @@
             <td class="col-date">{{ \Carbon\Carbon::parse($log->date)->format('Y/m/d') }}</td>
             <td class="col-left">{{ $log->weight }}kg</td>
             <td class="col-left">{{ $log->calories }}kcal</td>
-            <td class="col-left">{{ $log->exercise_time }}</td>
+            <td class="col-left">{{ substr($log->exercise_time, 0, 5) }}</td>
             <td class="col-left">
                 <a href="{{ url('weight_logs/' . $log->id) }}" title="編集">
                     <img src="{{ asset('images/pencil.png') }}" alt="編集アイコン" class="edit-icon">
@@ -92,7 +92,7 @@
         <form method="POST" action="weight_logs/create">
           @csrf
           <div class="modal-header">
-            <h5 class="modal-title" id="addLogModalLabel">新規ログ追加</h5>
+            <h5 class="modal-title" id="addLogModalLabel">Weight Logを追加</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
           </div>
           <div class="modal-body">
@@ -118,8 +118,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">追加</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                戻る</button>
+            <button type="submit" class="btn btn-primary">登録</button>
           </div>
         </form>
       </div>

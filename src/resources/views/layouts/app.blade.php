@@ -23,6 +23,8 @@
             </form>
         </div>
     </header>
+    <div class="line"></div>
+
     <main class="main">
         @yield('content')
     </main>
