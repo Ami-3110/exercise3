@@ -93,34 +93,39 @@
           @csrf
           <div class="modal-header">
             <h5 class="modal-title" id="addLogModalLabel">Weight Logを追加</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <label for="date" class="form-label">日付</label>
-              <input type="date" class="form-control" name="date" required>
+              <label for="date" class="form-label">日付<span class="required">必須</span></label>
+              <input type="date" class="form-ctrl" name="date" placeholder="50.0" required>
             </div>
             <div class="mb-3">
-              <label for="weight" class="form-label">体重 (kg)</label>
-              <input type="number" class="form-control" name="weight" step="0.1" required>
+              <label for="weight" class="form-label">体重<span class="required">必須</span></label>
+              <div class="input-with-unit">
+                <input type="number" class="form-ctrl" name="weight" step="0.1" placeholder="50.0" required>
+                <span class="modal__unit">kg</span>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="calories" class="form-label">摂取カロリー</label>
-              <input type="number" class="form-control" name="calories">
+              <label for="calories" class="form-label">摂取カロリー<span class="required">必須</span></label>
+              <div class="input-with-unit">
+                <input type="number" class="form-ctrl" name="calories" placeholder="1200">
+                    <span class="modal__unit">kcal</span>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="exercise_time" class="form-label">運動時間</label>
-              <input type="time" class="form-control" name="exercise_time">
+              <label for="exercise_time" class="form-label">運動時間<span class="required">必須</span></label>
+              <input type="time" class="form-ctrl" name="exercise_time" placeholder="00:00">
             </div>
             <div class="mb-3">
               <label for="exercise_content" class="form-label">運動内容</label>
-              <input type="text" class="form-control" name="exercise_content">
+              <textarea class="form-ctrl" name="exercise_content" placeholder="運動内容を追加"></textarea>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                戻る</button>
-            <button type="submit" class="btn btn-primary">登録</button>
+          <div class="btn-wrapper">
+                <button type="button" class="btn-secondary" data-bs-dismiss="modal">
+                    戻る</button>
+                <button type="submit" class="btn-primary">登録</button>
           </div>
         </form>
       </div>
