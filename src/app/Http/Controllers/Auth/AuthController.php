@@ -46,7 +46,7 @@ class AuthController extends Controller
             'password' => $step1['password'],
         ]);
         // 目標体重をweight_targetsテーブルに保存
-        $user -> weightTargets()->create([
+        $user -> weightTarget()->create([
             'target_weight' => $request->input('target_weight'),
         ]);
         // 現在の体重をweight_logsテーブルに最初の記録として保存
@@ -74,10 +74,8 @@ class AuthController extends Controller
         return redirect()->intended('/weight_logs');
     }
 
-    return back()->withErrors([
-        'email' => '認証に失敗しました。',
-    ])->onlyInput('email');
-}
+    return redirect('/register/step1');
+    }
 
     
 

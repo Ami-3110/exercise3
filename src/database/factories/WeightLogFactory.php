@@ -26,7 +26,7 @@ class WeightLogFactory extends Factory
             'weight' => $this->faker->randomFloat(1, 900, 700), // 例: 700kg〜900kg
             'calories' => $this->faker->numberBetween(1200, 3000),
             'exercise_time' => $exerciseTime,
-            'exercise_content' => $this->faker->randomElement(['ランニング', '水泳', 'ウォーキング', '筋トレ', 'ヨガ','スクーバダイビング','フリーダイビング']),
+            'exercise_content' => $this->faker->randomElement(['ランニング', '水泳', 'お散歩', '腹筋', 'バイバイの練習','餌探し','フリーダイビング','でんぐり返しの練習','投げキッスの練習',]),
         ];
     }
 }

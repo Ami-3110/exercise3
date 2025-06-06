@@ -82,54 +82,80 @@
         @endforeach
     </table>
 
-    {{ $logs->links() }}
+    {{ $logs->links('vendor.pagination.default') }}
+
 </div>
 
 <!-- モーダル本体 -->
 <div class="modal fade" id="addLogModal" tabindex="-1" aria-labelledby="addLogModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form method="POST" action="weight_logs/create">
+        <form method="POST" action="{{ route('weight_logs.store') }}" novalidate>
           @csrf
           <div class="modal-header">
             <h5 class="modal-title" id="addLogModalLabel">Weight Logを追加</h5>
           </div>
           <div class="modal-body">
+  
             <div class="mb-3">
               <label for="date" class="form-label">日付<span class="required">必須</span></label>
-              <input type="date" class="form-ctrl" name="date" placeholder="50.0" required>
+              <input type="date" class="form-ctrl" name="date" value="{{ old('date', date('Y-m-d')) }}">
+              @error('date')
+              <div class="error">{{ $message }}</div>
+              @enderror
             </div>
+  
             <div class="mb-3">
               <label for="weight" class="form-label">体重<span class="required">必須</span></label>
               <div class="input-with-unit">
-                <input type="number" class="form-ctrl" name="weight" step="0.1" placeholder="50.0" required>
+                <input type="number" class="form-ctrl" name="weight" step="0.1" placeholder="50.0" value="{{ old('weight') }}">
                 <span class="modal__unit">kg</span>
               </div>
+              @error('weight')
+              <div class="error">{{ $message }}</div>
+              @enderror
             </div>
+  
             <div class="mb-3">
               <label for="calories" class="form-label">摂取カロリー<span class="required">必須</span></label>
               <div class="input-with-unit">
-                <input type="number" class="form-ctrl" name="calories" placeholder="1200">
-                    <span class="modal__unit">kcal</span>
+                <input type="number" class="form-ctrl" name="calories" placeholder="1200" value="{{ old('calories') }}">
+                <span class="modal__unit">kcal</span>
               </div>
+              @error('calories')
+              <div class="error">{{ $message }}</div>
+              @enderror
             </div>
+  
             <div class="mb-3">
               <label for="exercise_time" class="form-label">運動時間<span class="required">必須</span></label>
-              <input type="time" class="form-ctrl" name="exercise_time" placeholder="00:00">
+              <input type="time" class="form-ctrl" name="exercise_time" placeholder="00:00" value="{{ old('exercise_time') }}">
+              @error('exercise_time')
+              <div class="error">{{ $message }}</div>
+              @enderror
             </div>
+  
             <div class="mb-3">
               <label for="exercise_content" class="form-label">運動内容</label>
-              <textarea class="form-ctrl" name="exercise_content" placeholder="運動内容を追加"></textarea>
+              <textarea class="form-ctrl" name="exercise_content" placeholder="運動内容を追加" value="{{ old('exercise_content') }}"></textarea>
             </div>
+  
           </div>
+  
           <div class="btn-wrapper">
-                <button type="button" class="btn-secondary" data-bs-dismiss="modal">
-                    戻る</button>
-                <button type="submit" class="btn-primary">登録</button>
+            <button type="button" class="btn-secondary" data-bs-dismiss="modal">戻る</button>
+            <button type="submit" class="btn-primary">登録</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-
+  @if ($errors->any())
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var myModal = new bootstrap.Modal(document.getElementById('addLogModal'));
+      myModal.show();
+    });
+  </script>
+  @endif 
 @endsection

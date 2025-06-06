@@ -8,6 +8,7 @@ use App\Models\WeightLog;
 use App\Models\WeightTarget;
 use App\Http\Requests\WeightLogRequest;
 use App\Http\Requests\SettingRequest;
+use Illuminate\Support\Facades\Auth;
 
 class WeightController extends Controller
 {
@@ -20,10 +21,7 @@ class WeightController extends Controller
             $this->getCommonData()
         ));
     }
-    
-    
 
-    
     // 新規作成
     public function store(WeightLogRequest $request){
         $user = Auth::user();
@@ -76,7 +74,7 @@ class WeightController extends Controller
     }
         
     
-    // 詳細の更新
+    // 更新
     public function update(WeightLogRequest $request, $weightLogId){
         $log = WeightLog::findOrFail($weightLogId);
     

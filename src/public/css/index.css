@@ -19,6 +19,14 @@
     text-align: center;
     padding: 15px;
     border-right: 2px solid #eeeeee;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.summary__item:hover {
+    background-color: #f0f8ff;
+    transform: scale(1.03);
+    border-radius: 8px;
 }
 
 .summary__item:last-child {
@@ -158,7 +166,6 @@ th::after {
     height: 1px;
     background: linear-gradient(135deg, #a6c1ee, #ffb6b9);
 }
-/* 日付列だけ左寄せ + 余白に!!! */
 th.col-date, td.col-date {
     text-align: left;
     padding-left: 30px;
@@ -187,6 +194,44 @@ th.col-left, td.col-left {
     padding: 0;
 }
 
+/* ページネーション */
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 30px 0;
+    font-size: 14px;
+}
+
+
+.custom-pagination .page,
+.custom-pagination .arrow {
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s ease;
+    margin: 0 4px;
+}
+
+.custom-pagination .page.active {
+    background: linear-gradient(135deg, #a0c4ff, #ffafcc);
+    color: white;
+    font-weight: bold;
+}
+
+.custom-pagination .page:hover:not(.active),
+.custom-pagination .arrow:hover:not(.disabled) {
+    background: #f0f0f0;
+}
+
+.custom-pagination .disabled {
+    color: #bbb;
+    pointer-events: none;
+    cursor: default;
+}
+
 
 /* モーダル関連 */
 /* モーダルのヘッダー */
@@ -194,8 +239,17 @@ th.col-left, td.col-left {
 .modal-dialog {
     max-width: 600px !important;
     width: 90% !important;
+    border: none;
 }
 
+.modal-content {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.modal-header {
+    border: none !important;
+}
 .modal-title {
     font-weight: bold;
     font-size: 20px;
@@ -235,16 +289,15 @@ th.col-left, td.col-left {
     border-radius: 8px;
     font-size: 14px;
     color: #999999;
+    margin-bottom: 10px;
 }
 
 .input-with-unit {
     display: flex;
     align-items: center;
     gap: 8px;
-    /* 入力欄と単位の間のスペース */
 }
 
-/* 入力欄の横幅を少し調整して、横に単位が入る余地を作る */
 .input-with-unit .form-ctrl {
     flex: 1;
     margin-bottom: 0;
@@ -255,6 +308,13 @@ th.col-left, td.col-left {
     font-size: 14px;
     color: #777777;
     white-space: nowrap;
+}
+
+/* バリデエラー */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 /* テキストエリア */
@@ -288,7 +348,7 @@ textarea.form-ctrl {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 登録ボタン（グラデーション） */
+/* 登録ボタン */
 .btn-primary {
     width: 150px;
     margin: 20 10px;

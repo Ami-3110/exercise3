@@ -1,46 +1,36 @@
 @if ($paginator->hasPages())
-    <nav>
-        <ul class="pagination">
-            {{-- Previous Page Link --}}
-            @if ($paginator->onFirstPage())
-                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <span aria-hidden="true">&lsaquo;</span>
-                </li>
-            @else
-                <li>
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
-                </li>
+    <nav class="custom-pagination">
+        {{-- 前へ --}}
+        @if ($paginator->onFirstPage())
+            <span class="arrow disabled">&lt;</span>
+        @else
+            <a href="{{ $paginator->previousPageUrl() }}" class="arrow">&lt;</a>
+        @endif
+
+        {{-- ページ番号 --}}
+        @foreach ($elements as $element)
+            {{-- 省略記号（...） --}}
+            @if (is_string($element))
+                <span class="page disabled">{{ $element }}</span>
             @endif
 
-            {{-- Pagination Elements --}}
-            @foreach ($elements as $element)
-                {{-- "Three Dots" Separator --}}
-                @if (is_string($element))
-                    <li class="disabled" aria-disabled="true"><span>{{ $element }}</span></li>
-                @endif
-
-                {{-- Array Of Links --}}
-                @if (is_array($element))
-                    @foreach ($element as $page => $url)
-                        @if ($page == $paginator->currentPage())
-                            <li class="active" aria-current="page"><span>{{ $page }}</span></li>
-                        @else
-                            <li><a href="{{ $url }}">{{ $page }}</a></li>
-                        @endif
-                    @endforeach
-                @endif
-            @endforeach
-
-            {{-- Next Page Link --}}
-            @if ($paginator->hasMorePages())
-                <li>
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
-                </li>
-            @else
-                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                    <span aria-hidden="true">&rsaquo;</span>
-                </li>
+            {{-- ページ番号リンク --}}
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    @if ($page == $paginator->currentPage())
+                        <span class="page active">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="page">{{ $page }}</a>
+                    @endif
+                @endforeach
             @endif
-        </ul>
+        @endforeach
+
+        {{-- 次へ --}}
+        @if ($paginator->hasMorePages())
+            <a href="{{ $paginator->nextPageUrl() }}" class="arrow">&gt;</a>
+        @else
+            <span class="arrow disabled">&gt;</span>
+        @endif
     </nav>
 @endif
