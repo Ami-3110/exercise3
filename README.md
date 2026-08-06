@@ -6,7 +6,7 @@
 
 ## インストール方法
 ### Dockerビルド
-    1. git clone git@github.com:Ami-3110/exercise3.git
+    1. git clone git@github.com:Ami-3110/weight-management-app.git
     2. DockerDesktopアプリを立ち上げる。
     3. docker-compose up -d --build
 

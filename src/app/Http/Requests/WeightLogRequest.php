@@ -15,7 +15,7 @@ class WeightLogRequest extends FormRequest
     {
         return [
             'date'            => ['required', 'date'],
-            'weight'          => ['required'],
+            'weight'          => ['required', 'numeric','max_digits:4', 'decimal:1'],
             'calories'        => ['required', 'integer'],
             'exercise_time'   => ['required'],
             'exercise_content'=> ['nullable', 'max:120'],
@@ -27,6 +27,9 @@ class WeightLogRequest extends FormRequest
         return [
             'date.required'   => '日付を入力してください',
             'weight.required' => '体重を入力してください',
+            'weight.numeric' => '数字で入力してください',
+            'weight.max_digits' => '４桁までの数字で入力してください',
+            'weight.decimal' => '小数点は1桁で入力してください',
             'calories.required'=> '摂取カロリーを入力してください',
             'calories.integer'=> '数字で入力してください',
             'exercise_time.required' => '運動時間を入力してください',
@@ -34,7 +37,7 @@ class WeightLogRequest extends FormRequest
         ];
     }
 
-    public function withValidator($validator): void
+    /*public function withValidator($validator): void
     {
         $value = $this->input('weight', '');
     
@@ -56,5 +59,5 @@ class WeightLogRequest extends FormRequest
         if ($decimal !== '' && strlen($decimal) > 1) {
             $validator->errors()->add('weight', '小数点は1桁で入力してください');
         }
-    }
+    }*/
 }
